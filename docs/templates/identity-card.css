@@ -1,0 +1,45 @@
+/* sawarabi-gothic-regular - japanese */
+@font-face {
+    font-family: 'Sawarabi Gothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/sawarabi-gothic-v12-japanese-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/sawarabi-gothic-v12-japanese-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/sawarabi-gothic-v12-japanese-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/sawarabi-gothic-v12-japanese-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/sawarabi-gothic-v12-japanese-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/sawarabi-gothic-v12-japanese-regular.svg#SawarabiGothic') format('svg'); /* Legacy iOS */
+}
+
+body
+{
+    font-family: "Sawarabi Gothic";
+}
+
+#content.student .title::after
+{
+    content: "生徒証明書";
+}
+#content.staff .title::after
+{
+    content: "職員証";
+}
+
+#content.student .title-en::after
+{
+    content: "Student Identity Card";
+}
+#content.staff .title-en::after
+{
+    content: "Staff Identity Card";
+}
+
+#content.student .character-info .list-header
+{
+    color: rgb(221, 61, 127);
+}
+#content.staff .character-info .list-header
+{
+    color: rgb(49, 146, 205);
+}
