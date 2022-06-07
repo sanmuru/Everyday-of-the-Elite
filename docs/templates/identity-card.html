@@ -3,6 +3,20 @@
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="identity-card.css">
+        <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+        <script>
+            function loadJSON(path, callback) {
+                var xobj = new XMLHttpRequest();
+                xobj.overrideMimeType("application/json");
+                xobj.open('GET', path, true);
+                xobj.onreadystatechange = function()
+                {
+                    if (xobj.readyState == 4 && xobj.status == "200")
+                        callback(xobj.responseText);
+                }
+                xobj.send(null);
+            }
+        </script>
     </head>
     <body>
         <div id="content" class="student">
@@ -28,5 +42,21 @@
                 </div>
             </section>
         </div>
+        <div id="parser"></div>
+        <script>
+            $.getJSON('../../data/kayamori_kiyoka.json', function(info) 
+            {
+                if (info.type === 0) // student
+                    $('#content').removeClass('staff').addClass('student');
+                else // staff
+                    $('#content').removeClass('student').addClass('staff');
+                $('.character-name').text(info.name);
+                $('.character-katagana').text(info.katagana);
+
+                $.each(info, function(i, field){
+                    $("#parser").append(field + " ");
+                });
+            });
+        </script>
     </body>
 </html>
